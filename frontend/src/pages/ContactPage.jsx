@@ -1,28 +1,43 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-hot-toast";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
 
 const ContactPage = () => {
+  const [loading, setLoading] = useState(false);
   const form = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+    const formData = new FormData(form.current);
+    const name = formData.get("user_name").trim();
+    const email = formData.get("user_email").trim();
+    const phone = formData.get("user_phone").trim();
+    const message = formData.get("message").trim();
+
+    if (!name || !email || !phone || !message) {
+      toast.error("Please fill all the fields!");
+      return; // stop the function from sending email
+    }
+    setLoading(true);
+    try {
+      const result = await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
-        "YOUR_PUBLIC_KEY"
-      )
-      .then(
-        (result) => {
-          alert("Message sent successfully!");
-          form.current.reset();
-        },
-        (error) => {
-          alert("Error sending message: " + error.text);
-        }
+       import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
+
+      toast.success("Message sent successfully!");
+      form.current.reset();
+    } catch (error) {
+      toast.error("Error sending message!");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -33,10 +48,18 @@ const ContactPage = () => {
       {/* Main Shop Info */}
       <div className="bg-slate-100 p-6 rounded-lg shadow mb-8">
         <h2 className="text-2xl font-semibold mb-2">Main Shop</h2>
-        <p><strong>Name:</strong> Your Shop Name</p>
-        <p><strong>Location:</strong> 123 Main Street, City, Country</p>
-        <p><strong>Mobile:</strong> +971 50 123 4567</p>
-        <p><strong>Email:</strong> info@yourshop.com</p>
+        <p>
+          <strong>Name:</strong> Your Shop Name
+        </p>
+        <p>
+          <strong>Location:</strong> 123 Main Street, City, Country
+        </p>
+        <p>
+          <strong>Mobile:</strong> +971 50 123 4567
+        </p>
+        <p>
+          <strong>Email:</strong> info@yourshop.com
+        </p>
         <p>
           <strong>Google Map:</strong>{" "}
           <a
@@ -54,9 +77,15 @@ const ContactPage = () => {
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         <div className="bg-slate-100 p-6 rounded-lg shadow">
           <h3 className="text-xl font-semibold mb-2">Branch 1</h3>
-          <p><strong>Name:</strong> Branch 1 Name</p>
-          <p><strong>Email:</strong> branch1@yourshop.com</p>
-          <p><strong>Phone:</strong> +971 50 234 5678</p>
+          <p>
+            <strong>Name:</strong> Branch 1 Name
+          </p>
+          <p>
+            <strong>Email:</strong> branch1@yourshop.com
+          </p>
+          <p>
+            <strong>Phone:</strong> +971 50 234 5678
+          </p>
           <p>
             <strong>Location:</strong>{" "}
             <a
@@ -71,9 +100,15 @@ const ContactPage = () => {
         </div>
         <div className="bg-slate-100 p-6 rounded-lg shadow">
           <h3 className="text-xl font-semibold mb-2">Branch 2</h3>
-          <p><strong>Name:</strong> Branch 2 Name</p>
-          <p><strong>Email:</strong> branch2@yourshop.com</p>
-          <p><strong>Phone:</strong> +971 50 345 6789</p>
+          <p>
+            <strong>Name:</strong> Branch 2 Name
+          </p>
+          <p>
+            <strong>Email:</strong> branch2@yourshop.com
+          </p>
+          <p>
+            <strong>Phone:</strong> +971 50 345 6789
+          </p>
           <p>
             <strong>Location:</strong>{" "}
             <a
@@ -99,7 +134,6 @@ const ContactPage = () => {
               name="user_name"
               className="w-full p-2 border border-gray-300 rounded"
               placeholder="Your Name"
-              required
             />
           </div>
           <div>
@@ -109,7 +143,6 @@ const ContactPage = () => {
               name="user_email"
               className="w-full p-2 border border-gray-300 rounded"
               placeholder="Your Email"
-              required
             />
           </div>
           <div>
@@ -119,7 +152,6 @@ const ContactPage = () => {
               name="user_phone"
               className="w-full p-2 border border-gray-300 rounded"
               placeholder="Your Phone Number"
-              required
             />
           </div>
           <div>
@@ -129,14 +161,18 @@ const ContactPage = () => {
               className="w-full p-2 border border-gray-300 rounded"
               placeholder="Your Message"
               rows="5"
-              required
             ></textarea>
           </div>
           <button
             type="submit"
+            disabled={loading}
             className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
           >
-            Send Message
+            {loading ? (
+              <Loader2 className="animate-spin w-5 h-5 mx-auto" />
+            ) : (
+              "Send Message"
+            )}
           </button>
         </form>
       </div>
