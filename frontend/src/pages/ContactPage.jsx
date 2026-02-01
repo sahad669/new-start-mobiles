@@ -1,0 +1,147 @@
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+const ContactPage = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        form.current,
+        "YOUR_PUBLIC_KEY"
+      )
+      .then(
+        (result) => {
+          alert("Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          alert("Error sending message: " + error.text);
+        }
+      );
+  };
+
+  return (
+    <div className="max-w-6xl mx-auto px-4 py-10 pt-30">
+      {/* Heading */}
+      <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
+
+      {/* Main Shop Info */}
+      <div className="bg-slate-100 p-6 rounded-lg shadow mb-8">
+        <h2 className="text-2xl font-semibold mb-2">Main Shop</h2>
+        <p><strong>Name:</strong> Your Shop Name</p>
+        <p><strong>Location:</strong> 123 Main Street, City, Country</p>
+        <p><strong>Mobile:</strong> +971 50 123 4567</p>
+        <p><strong>Email:</strong> info@yourshop.com</p>
+        <p>
+          <strong>Google Map:</strong>{" "}
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline"
+          >
+            View on Map
+          </a>
+        </p>
+      </div>
+
+      {/* Branches Info */}
+      <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="bg-slate-100 p-6 rounded-lg shadow">
+          <h3 className="text-xl font-semibold mb-2">Branch 1</h3>
+          <p><strong>Name:</strong> Branch 1 Name</p>
+          <p><strong>Email:</strong> branch1@yourshop.com</p>
+          <p><strong>Phone:</strong> +971 50 234 5678</p>
+          <p>
+            <strong>Location:</strong>{" "}
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              View on Map
+            </a>
+          </p>
+        </div>
+        <div className="bg-slate-100 p-6 rounded-lg shadow">
+          <h3 className="text-xl font-semibold mb-2">Branch 2</h3>
+          <p><strong>Name:</strong> Branch 2 Name</p>
+          <p><strong>Email:</strong> branch2@yourshop.com</p>
+          <p><strong>Phone:</strong> +971 50 345 6789</p>
+          <p>
+            <strong>Location:</strong>{" "}
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              View on Map
+            </a>
+          </p>
+        </div>
+      </div>
+
+      {/* Contact Form */}
+      <div className="bg-slate-100 p-6 rounded-lg shadow mt-20">
+        <h2 className="text-2xl font-semibold mb-4">Send us a message</h2>
+        <form ref={form} onSubmit={sendEmail} className="space-y-4">
+          <div>
+            <label className="block mb-1 font-medium">Name</label>
+            <input
+              type="text"
+              name="user_name"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div>
+            <label className="block mb-1 font-medium">Email</label>
+            <input
+              type="email"
+              name="user_email"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div>
+            <label className="block mb-1 font-medium">Phone Number</label>
+            <input
+              type="tel"
+              name="user_phone"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="Your Phone Number"
+              required
+            />
+          </div>
+          <div>
+            <label className="block mb-1 font-medium">Message</label>
+            <textarea
+              name="message"
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="Your Message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default ContactPage;
