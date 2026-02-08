@@ -5,7 +5,7 @@ import { FaMobileAlt, FaLaptop, FaVideo, FaNetworkWired } from "react-icons/fa";
 
 const Home = () => {
   return (
-    <div className="bg-white">
+    <div className="">
       <HomeCarousel />
 
       {/* Products section */}
@@ -22,7 +22,7 @@ const Home = () => {
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <div className="group relative flex flex-col rounded-2xl bg-white shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+          <div className="group relative flex flex-col rounded-2xl  shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
             <div className="relative overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
@@ -108,7 +108,7 @@ const Home = () => {
       </div>
 
       {/* Services section */}
-      <div className="bg-white py-20">
+      <div className=" py-20">
       <div className="max-w-6xl mx-auto px-4">
         <h1 className="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
           Our Services

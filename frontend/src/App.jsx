@@ -7,6 +7,9 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ContactPage from "./pages/ContactPage";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminProtectedRouter from "./components/AdminProtectedRouter";
+import Category from "./components/Category";
 const App = () => {
   return (
     <>
@@ -15,10 +18,20 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Service />} />
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login/>}/>
-         <Route path="/register" element={<Register/>}/>
-          <Route path="/contact" element={<ContactPage/>}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminProtectedRouter>
+              <AdminDashboard />
+            </AdminProtectedRouter>
+          }
+        />
+          <Route path="/category" element={<Category/>}/>
       </Routes>
+    
     </>
   );
 };

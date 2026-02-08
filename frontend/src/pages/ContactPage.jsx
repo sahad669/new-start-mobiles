@@ -49,21 +49,24 @@ const ContactPage = () => {
       <div className="bg-slate-100 p-6 rounded-lg shadow mb-8">
         <h2 className="text-2xl font-semibold mb-2">Main Shop</h2>
         <p>
-          <strong>Name:</strong> Your Shop Name
+          <strong>Name:</strong> Main Branch
         </p>
         <p>
-          <strong>Location:</strong> 123 Main Street, City, Country
+          <strong>Location:</strong> Western Region Beda Zayed Sanaya Abu Dhabi
         </p>
         <p>
-          <strong>Mobile:</strong> +971 50 123 4567
+          <strong>phone:</strong> 028843107
+        </p>
+         <p>
+          <strong>Whatsapp:</strong> +971567574124
         </p>
         <p>
-          <strong>Email:</strong> info@yourshop.com
+          <strong>Email:</strong> newstarmobileuae@gmail.com
         </p>
         <p>
           <strong>Google Map:</strong>{" "}
           <a
-            href="https://maps.google.com"
+            href="https://www.google.com/maps/place/23%C2%B039'35.1%22N+53%C2%B043'37.8%22E/@23.6597538,53.7245865,17z/data=!3m1!4b1!4m4!3m3!8m2!3d23.6597538!4d53.7271614?hl=en&entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 underline"

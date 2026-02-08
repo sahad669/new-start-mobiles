@@ -4,6 +4,8 @@ import connect from "./config/connectDB.js"
 import cors from "cors"
 import upload from "./middleware/multer.js"
 import userRouter from "./routes/userRouter.js"
+import categoryRouter from "./routes/categoryRouter.js"
+import brandRouter from "./routes/brandRouter.js"
 
 dotenv.config()
 const app = express()
@@ -12,6 +14,8 @@ app.use(cors())
 
 
 app.use("/api/user",userRouter)
+app.use("/api/Category",categoryRouter)
+app.use("/api/Brand",brandRouter)
 
 
 connect()

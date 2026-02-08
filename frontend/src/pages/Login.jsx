@@ -41,7 +41,7 @@ const Login = () => {
       const res = await dispatch(login(data)).unwrap();
 
       if (res.user.role === "admin") {
-        navigate("/adminDashboard");
+        navigate("/admin");
       } else {
         navigate("/cart");
       }
