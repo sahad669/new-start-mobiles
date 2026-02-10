@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 py-2 flex items-center justify-between">
         {/* LEFT: LOGO + NAME */}
         <div className="flex items-center gap-2">
           <img
@@ -48,7 +48,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/products"
+                to="/product"
                 className="text-[#eb2525] hover:text-[#2563EB]"
               >
                 Products

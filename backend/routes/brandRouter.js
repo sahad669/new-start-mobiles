@@ -5,9 +5,9 @@ import { addBrand,editBrand,deleteBrand,getAllBrand } from "../controllers/brand
 const router = express.Router()
 
 router.get("/getallbrand",getAllBrand)
-router.post("/addbrand",addBrand)
+router.post("/add",addBrand)
 router.patch("/editbrand/:id",editBrand)
-router.delete("/deletbrand/:id",deleteBrand)
+router.delete("/deletebrand/:id",deleteBrand)
 
 
 export default router

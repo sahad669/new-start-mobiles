@@ -10,7 +10,7 @@ const branchesData = [
       "/images/newstar-two.webp",
       "/images/newstar-one.webp",
       "/images/newstar-three.webp",
-      "/images/newstar-four.webp",
+      "/images/new-star-about.webp",
     ],
   },
   {

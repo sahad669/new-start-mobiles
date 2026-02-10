@@ -15,7 +15,7 @@ app.use(cors())
 
 app.use("/api/user",userRouter)
 app.use("/api/Category",categoryRouter)
-app.use("/api/Brand",brandRouter)
+app.use("/api/mobileBrands",brandRouter)
 
 
 connect()
