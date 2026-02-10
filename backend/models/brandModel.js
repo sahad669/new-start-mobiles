@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const brandSchema = new mongoose.Schema(
   {
-    brandName: {
+    name: {
       type: String,
       required: true,
       unique: true,
@@ -12,5 +12,5 @@ const brandSchema = new mongoose.Schema(
   },
 
 );
-const brandModel = mongoose.model("Brand",brandSchema)
+const brandModel = mongoose.model("mobileBrands",brandSchema)
 export default brandModel

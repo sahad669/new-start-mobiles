@@ -16,7 +16,7 @@ const AdminDashboard = () => {
           Add Categories
         </button>
 
-        <button className="px-4 py-2 bg-black text-white rounded">
+        <button onClick={()=>navigate("/brand")} className="px-4 py-2 bg-black text-white rounded">
           Add Brands
         </button>
 

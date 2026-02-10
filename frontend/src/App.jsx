@@ -10,6 +10,8 @@ import ContactPage from "./pages/ContactPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminProtectedRouter from "./components/AdminProtectedRouter";
 import Category from "./components/Category";
+import Brand from "./components/Brand";
+import Products from "./pages/Products";
 const App = () => {
   return (
     <>
@@ -21,6 +23,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/product" element={<Products/>}/>
         <Route
           path="/admin"
           element={
@@ -30,6 +33,7 @@ const App = () => {
           }
         />
           <Route path="/category" element={<Category/>}/>
+           <Route path="/brand" element={<Brand/>}/>
       </Routes>
     
     </>

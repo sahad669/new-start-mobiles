@@ -4,17 +4,17 @@ import brandModel from "../models/brandModel.js";
 // add new Brand
 
 export const addBrand = async (req, res) => {
-  const { brandName } = req.body;
+  const {name} = req.body;
   try {
-    if (!brandName) {
+    if (!name) {
       return res.status(400).json({ error: "Brand name requireed" });
     }
-    const existingBrand = await brandModel.findOne({ brandName });
+    const existingBrand = await brandModel.findOne({name});
     if (existingBrand) {
-      return res.json({ error: "Brand Name alredy existed create new one" });
+      return res.json({ message: "Brand Name alredy existed create new one" });
     }
 
-    const newBrand = await brandModel.create({ brandName });
+    const newBrand = await brandModel.create({name});
     res
       .status(201)
       .json({ message: "Brand Created Successfully", newBrand });
@@ -49,7 +49,7 @@ export const deleteBrand = async (req, res) => {
     const deletedBrand = await brandModel.findByIdAndDelete(id);
     res
       .status(200)
-      .json({ mesage: "Brand deleted successfully", deletedBrand });
+      .json({ message: "Brand deleted successfully", deletedBrand });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -60,9 +60,6 @@ export const deleteBrand = async (req, res) => {
 export const getAllBrand = async (req, res) => {
   try {
     const allBrand = await brandModel.find({});
-    if(allBrand.length === 0){
-         return res.status(404).json({ message: "there is no Brands added yet, create new Brand" });
-    }
     res.status(200).json(allBrand);
   } catch (error) {
     res.status(500).json({ message: "something went wrong" });

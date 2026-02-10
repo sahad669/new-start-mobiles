@@ -6,7 +6,7 @@ import {
   FaShieldAlt,
   FaVideo,
 } from "react-icons/fa";
-import Branches from "../components/branches";
+import Branches from "../components/Branches";
 
 const About = () => {
   return (
@@ -14,7 +14,7 @@ const About = () => {
       {/* HERO SECTION */}
       <div className="relative w-full h-[420px] overflow-hidden">
         <img
-          src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzUdN4sYB9hgsdU5ePMhzHdHEuos7BXEclD_1ZtZnIvYRP1JJMyzJszCKENHQcuL-54PeTfGzE8mfqC35YSgbtRpttPMYjO0nX-ro9OsPWo1RanieiMES0i1TZekhIQy6-o8iR1=s680-w680-h510-rw"
+          src="/images/new-star-about.webp"
           alt="Mobile Shop"
           className="absolute inset-0 w-full h-full object-cover"
         />

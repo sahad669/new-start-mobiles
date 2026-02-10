@@ -42,10 +42,11 @@ const Home = () => {
                 Latest Android &amp; iOS devices with warranty and expert setup
                 support.
               </p>
-
-              <button className="mt-auto w-full rounded-md bg-yellow-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600">
-                View More...
-              </button>
+              <Link to="/product">
+                <button className="mt-auto w-full rounded-md bg-yellow-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600">
+                  View More...
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -70,10 +71,11 @@ const Home = () => {
                 Reliable laptops for office, study, and gaming with upgrade
                 options.
               </p>
-
-              <button className="mt-auto w-full rounded-md bg-yellow-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600">
-                View More...
-              </button>
+              <Link to="/product">
+                <button className="mt-auto w-full rounded-md bg-yellow-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600">
+                  View More...
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -98,10 +100,11 @@ const Home = () => {
                 Cases, chargers, earphones, smartwatches, and more to match your
                 device.
               </p>
-
-              <button className="mt-auto w-full rounded-md bg-yellow-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600">
-                View More...
-              </button>
+              <Link to="/product">
+                <button className="mt-auto w-full rounded-md bg-yellow-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600">
+                  View More...
+                </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -109,75 +112,84 @@ const Home = () => {
 
       {/* Services section */}
       <div className=" py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <h1 className="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-          Our Services
-        </h1>
-        <p className="text-center text-sm md:text-base text-gray-500 mb-12 max-w-2xl mx-auto">
-          Professional CCTV, IT support, computer and mobile repair, and
-          on‑site home & office IT services to keep your tech secure and
-          running smoothly.
-        </p>
+        <div className="max-w-6xl mx-auto px-4">
+          <h1 className="text-center text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            Our Services
+          </h1>
+          <p className="text-center text-sm md:text-base text-gray-500 mb-12 max-w-2xl mx-auto">
+            Professional CCTV, IT support, computer and mobile repair, and
+            on‑site home & office IT services to keep your tech secure and
+            running smoothly.
+          </p>
 
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
-          {/* Mobile Service */}
-          <div className="group flex flex-col h-full rounded-2xl bg-gray-50 shadow-md p-6 text-center transition hover:-translate-y-1 hover:shadow-xl cursor-pointer">
-            <FaMobileAlt className="mx-auto mb-4 text-5xl text-yellow-500 group-hover:scale-110 transition" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Mobile Service</h3>
-            <p className="text-sm text-gray-500 mb-6 grow">
-              Mobile repair, software, upgrades, and accessories.
-            </p>
-            <Link to="/services" className="mt-auto">
-              <span className="inline-block rounded-md bg-yellow-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-yellow-600">
-                Read More
-              </span>
-            </Link>
-          </div>
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+            {/* Mobile Service */}
+            <div className="group flex flex-col h-full rounded-2xl bg-gray-50 shadow-md p-6 text-center transition hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+              <FaMobileAlt className="mx-auto mb-4 text-5xl text-yellow-500 group-hover:scale-110 transition" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Mobile Service
+              </h3>
+              <p className="text-sm text-gray-500 mb-6 grow">
+                Mobile repair, software, upgrades, and accessories.
+              </p>
+              <Link to="/services" className="mt-auto">
+                <span className="inline-block rounded-md bg-yellow-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-yellow-600">
+                  Read More
+                </span>
+              </Link>
+            </div>
 
-          {/* Computer Service */}
-          <div className="group flex flex-col h-full rounded-2xl bg-gray-50 shadow-md p-6 text-center transition hover:-translate-y-1 hover:shadow-xl cursor-pointer">
-            <FaLaptop className="mx-auto mb-4 text-5xl text-blue-500 group-hover:scale-110 transition" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Computer Service</h3>
-            <p className="text-sm text-gray-500 mb-6 grow">
-              Laptop & desktop repair, OS installation, upgrades.
-            </p>
-            <Link to="/services" className="mt-auto">
-              <span className="inline-block rounded-md bg-yellow-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-yellow-600">
-                Read More
-              </span>
-            </Link>
-          </div>
+            {/* Computer Service */}
+            <div className="group flex flex-col h-full rounded-2xl bg-gray-50 shadow-md p-6 text-center transition hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+              <FaLaptop className="mx-auto mb-4 text-5xl text-blue-500 group-hover:scale-110 transition" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Computer Service
+              </h3>
+              <p className="text-sm text-gray-500 mb-6 grow">
+                Laptop & desktop repair, OS installation, upgrades.
+              </p>
+              <Link to="/services" className="mt-auto">
+                <span className="inline-block rounded-md bg-yellow-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-yellow-600">
+                  Read More
+                </span>
+              </Link>
+            </div>
 
-          {/* CCTV Service */}
-          <div className="group flex flex-col h-full rounded-2xl bg-gray-50 shadow-md p-6 text-center transition hover:-translate-y-1 hover:shadow-xl cursor-pointer">
-            <FaVideo className="mx-auto mb-4 text-5xl text-purple-500 group-hover:scale-110 transition" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">CCTV Service</h3>
-            <p className="text-sm text-gray-500 mb-6 grow">
-              Installation and maintenance of CCTV systems for homes and businesses.
-            </p>
-            <Link to="/services" className="mt-auto">
-              <span className="inline-block rounded-md bg-yellow-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-yellow-600">
-                Read More
-              </span>
-            </Link>
-          </div>
+            {/* CCTV Service */}
+            <div className="group flex flex-col h-full rounded-2xl bg-gray-50 shadow-md p-6 text-center transition hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+              <FaVideo className="mx-auto mb-4 text-5xl text-purple-500 group-hover:scale-110 transition" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                CCTV Service
+              </h3>
+              <p className="text-sm text-gray-500 mb-6 grow">
+                Installation and maintenance of CCTV systems for homes and
+                businesses.
+              </p>
+              <Link to="/services" className="mt-auto">
+                <span className="inline-block rounded-md bg-yellow-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-yellow-600">
+                  Read More
+                </span>
+              </Link>
+            </div>
 
-          {/* IT Support */}
-          <div className="group flex flex-col h-full rounded-2xl bg-gray-50 shadow-md p-6 text-center transition hover:-translate-y-1 hover:shadow-xl cursor-pointer">
-            <FaNetworkWired className="mx-auto mb-4 text-5xl text-green-500 group-hover:scale-110 transition" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">IT Support</h3>
-            <p className="text-sm text-gray-500 mb-6 grow">
-              Home & office IT support, networking, Wi-Fi setup.
-            </p>
-            <Link to="/services" className="mt-auto">
-              <span className="inline-block rounded-md bg-yellow-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-yellow-600">
-                Read More
-              </span>
-            </Link>
-          </div>
-        </section>
+            {/* IT Support */}
+            <div className="group flex flex-col h-full rounded-2xl bg-gray-50 shadow-md p-6 text-center transition hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+              <FaNetworkWired className="mx-auto mb-4 text-5xl text-green-500 group-hover:scale-110 transition" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                IT Support
+              </h3>
+              <p className="text-sm text-gray-500 mb-6 grow">
+                Home & office IT support, networking, Wi-Fi setup.
+              </p>
+              <Link to="/services" className="mt-auto">
+                <span className="inline-block rounded-md bg-yellow-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-yellow-600">
+                  Read More
+                </span>
+              </Link>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
