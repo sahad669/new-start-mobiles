@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   FaMobileAlt,
@@ -10,83 +11,170 @@ import Branches from "../components/Branches";
 
 const About = () => {
   return (
-    <div className="w-full">
+    <div className="bg-linear-to-br from-slate-50 via-white to-indigo-50 min-h-screen">
       {/* HERO SECTION */}
-      <div className="relative w-full h-[420px] overflow-hidden">
+      <section className="relative overflow-hidden bg-linear-to-br from-indigo-900 via-purple-900/50 to-gray-900">
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
         <img
           src="/images/new-star-about.webp"
-          alt="Mobile Shop"
-          className="absolute inset-0 w-full h-full object-cover"
+          alt="About Us"
+          className="absolute inset-0 w-full h-[500px] sm:h-[600px] lg:h-[500px] object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
-
-        <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">
-            About Our Mobile Shop
-          </h1>
-          <p className="text-gray-200 max-w-2xl text-sm md:text-base">
-            Your trusted destination for smartphones, accessories, and expert service
-          </p>
-        </div>
-      </div>
-
-      {/* ABOUT DESCRIPTION */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <video
-            width="100%"
-            height="100%"
-            autoPlay
-            loop
-            muted
-            controls
-            className="rounded-xl shadow-lg"
-          >
-            <source src="/videos/new-start-group-vedio.mp4" type="video/mp4" />
-            <source src="/videos/new-start-group-vedio.ogg" type="video/ogg" />
-            Your browser does not support the video tag.
-          </video>
-
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Who We Are
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              We are a trusted mobile phone shop offering the latest smartphones, accessories, and repair services. Our goal is to provide genuine products, competitive prices, and excellent customer support.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              Whether you are looking for a new phone, accessories, or technical help, our experienced team is always ready to assist you.
+        
+        <div className="relative z-10 flex flex-col justify-center items-center h-[60vh] sm:h-[65vh] lg:h-[70vh]">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black bg-linear-to-r from-white via-indigo-50 to-white bg-clip-text text-transparent mb-6 sm:mb-8 drop-shadow-2xl leading-tight">
+              About New Star Mobile
+            </h1>
+            <p className="text-xl sm:text-2xl lg:text-3xl text-indigo-100/90 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+              Your trusted destination for premium smartphones, genuine accessories, 
+              expert repairs, and professional CCTV installation in Abu Dhabi
             </p>
           </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="bg-linear-to-br from-gray-100 to-gray-200 py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-gray-800 mb-14">
-            Why Choose Us
-          </h2>
+      {/* ABOUT DESCRIPTION */}
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-linear-to-r from-indigo-50/50 via-white/80 to-purple-50/50" />
+        
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Video Section */}
+          <div className="order-2 lg:order-1">
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt" />
+              <video
+                width="100%"
+                height="100%"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                className="relative rounded-3xl shadow-2xl w-full aspect-video max-w-md mx-auto lg:max-w-none block object-cover border-8 border-white/50"
+                poster="/images/video-poster.jpg"
+              >
+                <source src="/videos/new-start-group-vedio.mp4" type="video/mp4" />
+                <source src="/videos/new-start-group-vedio.ogg" type="video/ogg" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 justify-items-center">
+          {/* Content */}
+          <div className="order-1 lg:order-2 text-center lg:text-left">
+            <div className="inline-flex items-center gap-3 bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full mb-8 font-semibold text-sm">
+              <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
+              About Our Company
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black bg-linear-to-r from-gray-900 via-indigo-900 to-gray-900 bg-clip-text text-transparent mb-6 leading-tight">
+              Trusted Tech Partner Since 2015
+            </h2>
+            
+            <p className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed max-w-lg lg:max-w-none">
+              New Star Mobile is Abu Dhabi's premier destination for smartphones, 
+              genuine accessories, and professional repair services. With years of 
+              experience serving thousands of satisfied customers, we combine cutting-edge 
+              technology with personalized service.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="text-left">
+                <div className="w-12 h-12 bg-linear-to-r from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-xl text-gray-900 mb-2">100% Genuine Products</h4>
+                <p className="text-gray-600">Every device and accessory comes with authentic warranty</p>
+              </div>
+              <div className="text-left">
+                <div className="w-12 h-12 bg-linear-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-xl text-gray-900 mb-2">Best Prices Guaranteed</h4>
+                <p className="text-gray-600">Competitive pricing with regular promotions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+     <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20">
+        <div className="absolute inset-0 bg-linear-to-rr from-indigo-50/80 via-white to-purple-50/80" />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20 sm:mb-24">
+            <div className="inline-flex items-center gap-2 bg-linear-to-r from-emerald-400 to-emerald-500 text-white px-6 py-3 rounded-full mb-8 font-semibold shadow-lg">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Why Thousands Choose Us
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black bg-linear-to-r from-gray-900 via-indigo-900 to-gray-900 bg-clip-text text-transparent mb-6">
+              What Makes Us Different
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Experience excellence in every purchase and service
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8 justify-items-center">
             {[
-              { icon: <FaMobileAlt size={32} />, title: "Latest Smartphones" },
-              { icon: <FaShieldAlt size={32} />, title: "Genuine Accessories" },
-              { icon: <FaTags size={32} />, title: "Affordable Prices" },
-              { icon: <FaTools size={32} />, title: "Expert Repair Service" },
-              { icon: <FaVideo size={32} />, title: "CCTV Installation" },
+              { 
+                icon: FaMobileAlt, 
+                title: "Latest Smartphones", 
+                color: "from-indigo-500 to-blue-600",
+                desc: "iPhone, Samsung, latest models"
+              },
+              { 
+                icon: FaShieldAlt, 
+                title: "Genuine Accessories", 
+                color: "from-emerald-500 to-teal-600",
+                desc: "Chargers, cases, screen protectors"
+              },
+              { 
+                icon: FaTags, 
+                title: "Best Prices", 
+                color: "from-yellow-500 to-orange-600",
+                desc: "Unbeatable deals & offers"
+              },
+              { 
+                icon: FaTools, 
+                title: "Expert Repairs", 
+                color: "from-purple-500 to-pink-600",
+                desc: "Fast, reliable service"
+              },
+              { 
+                icon: FaVideo, 
+                title: "CCTV Installation", 
+                color: "from-red-500 to-rose-600",
+                desc: "Professional security systems"
+              },
             ].map((item, index) => (
               <div
                 key={index}
-                className="w-52 h-52 bg-white rounded-full shadow-lg flex flex-col items-center justify-center text-center p-4
-                           hover:bg-black hover:text-white hover:scale-105 transition-all duration-300"
+                className="group relative w-48 h-48 lg:w-52 lg:h-52 bg-white rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 overflow-hidden cursor-pointer hover:scale-105"
               >
-                <div className="mb-3 text-blue-600 group-hover:text-white">
-                  {item.icon}
+                {/* Decorative Ring */}
+                <div className="absolute inset-0 rounded-3xl bg-linear-to-r from-white/50 to-transparent opacity-75 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="relative z-10 flex flex-col items-center justify-center h-full text-center p-6 lg:p-8">
+                  <div className={`w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-linear-to-br ${item.color} shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 mx-auto`}>
+                    <item.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white shadow-lg" />
+                  </div>
+                  <h3 className="font-black text-lg lg:text-xl text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors px-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs lg:text-sm text-gray-500 px-2 leading-tight">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="font-semibold text-sm md:text-base">
-                  {item.title}
-                </h3>
               </div>
             ))}
           </div>
@@ -94,7 +182,7 @@ const About = () => {
       </section>
 
       {/* BRANCHES */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
         <Branches />
       </section>
     </div>

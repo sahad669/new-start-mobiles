@@ -20,8 +20,11 @@ const AdminDashboard = () => {
           Add Brands
         </button>
 
-        <button className="px-4 py-2 bg-black text-white rounded">
+        <button onClick={()=>navigate("/adminproducts")} className="px-4 py-2 bg-black text-white rounded">
           Add Products
+        </button>
+         <button onClick={()=>navigate("/getorders")} className="px-4 py-2 bg-black text-white rounded">
+          Orders
         </button>
       </div>
     </div>

@@ -6,7 +6,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (data, { rejectWithValue }) => {
     try {
-      const res = await axiosInstants.post("/user/register", data);
+      const res = await axiosInstants.post("/users/register", data);
       toast.success("Account created successfully. Please login.");
       return res.data;
     } catch (error) {
@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk("auth/login", async (data) => {
   try {
-    const res = await axiosInstants.post("/user/login", data);
+    const res = await axiosInstants.post("/users/login", data);
     localStorage.setItem("token", res.data.token);
     localStorage.setItem("user", JSON.stringify(res.data.user));
     toast.success(res.data.message);

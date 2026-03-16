@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 // add brand
 export const addBrand = createAsyncThunk("brand/addBrand", async (data) => {
   try {
-    let res = await axiosInstants.post("/mobileBrands/add", data);
+    let res = await axiosInstants.post("/MobileBrands/add", data);
     toast.success(res.data.message);
     return res.data.newBrand;
   } catch (error) {
@@ -20,7 +20,7 @@ export const editBrand = createAsyncThunk(
   "brand/editBrand",
   async ({ id, data }) => {
     try {
-      const res = await axiosInstants.patch(`/mobileBrands/editbrand/${id}`, data);
+      const res = await axiosInstants.patch(`/MobileBrands/editbrand/${id}`, data);
       toast.success(res.data.message);
       return res.data.editedBrand;
     } catch (error) {
@@ -34,7 +34,7 @@ export const editBrand = createAsyncThunk(
 // delete Brand
 export const deleteBrand = createAsyncThunk("brand/deleteBrand", async (id) => {
   try {
-    let res = await axiosInstants.delete(`/mobileBrands/deletebrand/${id}`);
+    let res = await axiosInstants.delete(`/MobileBrands/deletebrand/${id}`);
     toast.success(res.data.message);
     return id;
   } catch (error) {
@@ -47,7 +47,7 @@ export const deleteBrand = createAsyncThunk("brand/deleteBrand", async (id) => {
 //get all Brands
 export const getAllBrand = createAsyncThunk("brand/getAllBrand", async () => {
   try {
-    let res = await axiosInstants.get("/mobileBrands/getallbrand");
+    let res = await axiosInstants.get("/MobileBrands/getallbrand");
     return res.data;
   } catch (error) {
     const message = error.response?.data?.message || "Failed to add brand";

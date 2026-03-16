@@ -4,7 +4,7 @@ const productSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
 
-    brand: { type: mongoose.Schema.Types.ObjectId, ref: "Brand", required: true },
+    brand: { type: mongoose.Schema.Types.ObjectId, ref: "MobileBrands", required: true },
 
     category: { type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true },
 
@@ -37,5 +37,5 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const productModel = mongoose.model("Product",productSchema)
+const productModel = mongoose.model("Products",productSchema)
 export default productModel
