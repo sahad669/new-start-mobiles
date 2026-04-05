@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axiosInstants from "../axiosInstants";
@@ -78,25 +77,38 @@ const OrderSummary = () => {
 
         {/* Empty State */}
         {orders.length === 0 && (
-          <div className="text-center py-20 px-4">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-8 bg-linear-to-r from-indigo-100 to-purple-100 rounded-3xl flex items-center justify-center">
-              <svg className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-              </svg>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              No orders yet
-            </h2>
-            <p className="text-lg text-gray-500 mb-8 max-w-md mx-auto">
-              Your shopping journey starts when you add items to cart.
-            </p>
-            <button
-              onClick={() => navigate("/product")}
-              className="inline-flex items-center gap-2 bg-indigo-600 text-white px-8 py-3 rounded-2xl font-semibold text-lg shadow-lg hover:bg-indigo-700 transition-all duration-200 hover:shadow-xl"
-            >
-              Start Shopping
-            </button>
-          </div>
+          <div className="py-4 px-4 text-center">
+  <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 bg-linear-to-r from-slate-100 to-indigo-100 rounded-2xl flex items-center justify-center shadow-sm">
+    <svg
+      className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-500"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+      />
+    </svg>
+  </div>
+  
+  <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 leading-tight">
+    No orders yet
+  </h2>
+  
+  <p className="text-base sm:text-lg text-slate-600 mb-6 max-w-sm mx-auto leading-relaxed">
+    Your shopping journey starts when you add items to cart.
+  </p>
+  
+  <button
+    onClick={() => navigate("/product")}
+    className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-2.5 rounded-xl font-semibold text-sm sm:text-base shadow-md hover:bg-slate-800 transition-all duration-200 hover:shadow-lg"
+  >
+    Start Shopping
+  </button>
+</div>
         )}
 
         {/* Orders List */}
@@ -123,10 +135,10 @@ const OrderSummary = () => {
                       Date
                     </p>
                     <p className="font-semibold text-sm sm:text-base text-gray-900">
-                      {new Date(order.createdAt).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
+                      {new Date(order.createdAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
                       })}
                     </p>
                   </div>
@@ -135,7 +147,9 @@ const OrderSummary = () => {
                     <p className="text-xs sm:text-sm text-gray-500 uppercase tracking-wide font-medium">
                       Status
                     </p>
-                    <span className={`inline-flex px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-full border ${getStatusColor(order.orderStatus)}`}>
+                    <span
+                      className={`inline-flex px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-full border ${getStatusColor(order.orderStatus)}`}
+                    >
                       {order.orderStatus.toUpperCase()}
                     </span>
                   </div>
@@ -144,8 +158,10 @@ const OrderSummary = () => {
                     <p className="text-xs sm:text-sm text-gray-500 uppercase tracking-wide font-medium">
                       Payment
                     </p>
-                    <span className={`inline-block px-2 py-1 text-xs sm:text-sm font-semibold rounded-full ${getPaymentColor(order.paymentStatus)}`}>
-                      {order.paymentMethod}
+                    <span
+                      className={`inline-block px-2 py-1 text-xs sm:text-sm font-semibold rounded-full ${getPaymentColor(order.paymentStatus)}`}
+                    >
+                      {order.paymentMethod} - {order.paymentStatus}
                     </span>
                   </div>
                 </div>
@@ -171,11 +187,15 @@ const OrderSummary = () => {
                         <h4 className="font-bold text-gray-900 text-sm sm:text-base leading-tight mb-1 truncate">
                           {item.name}
                         </h4>
-                        
+
                         {/* Variant Badge */}
                         {item.variant && (
                           <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-800 px-3 py-1.5 rounded-full text-xs font-medium mb-2 max-w-xs">
-                            <svg className="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <svg
+                              className="w-3 h-3 shrink-0"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
                               <path
                                 fillRule="evenodd"
                                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
@@ -185,10 +205,11 @@ const OrderSummary = () => {
                             {item.variant}
                           </div>
                         )}
-                        
+
                         <p className="text-indigo-600 font-bold text-sm sm:text-base">
                           AED {item.price.toFixed(2)}
                         </p>
+                       
                         <p className="text-xs sm:text-sm text-gray-500 mt-1">
                           Qty: {item.quantity}
                         </p>
@@ -199,6 +220,9 @@ const OrderSummary = () => {
                       <p className="text-xl sm:text-2xl font-bold text-gray-900">
                         AED {(item.price * item.quantity).toFixed(2)}
                       </p>
+                       <p className="text-sm text-gray-600">
+                          Shipping: AED 10.00
+                        </p>
                     </div>
                   </div>
                 ))}
@@ -210,17 +234,21 @@ const OrderSummary = () => {
                   {order.trackingNumber && (
                     <p className="flex items-center gap-2 font-medium">
                       <span className="w-2 h-2 bg-emerald-500 rounded-full" />
-                      Tracking: <span className="font-mono">{order.trackingNumber}</span>
+                      Tracking:{" "}
+                      <span className="font-mono">{order.trackingNumber}</span>
                     </p>
                   )}
-                  
+
                   {order.shippedAt && (
-                    <p>Shipped: {new Date(order.shippedAt).toLocaleDateString()}</p>
+                    <p>
+                      Shipped: {new Date(order.shippedAt).toLocaleDateString()}
+                    </p>
                   )}
-                  
+
                   {order.deliveredAt && (
                     <p className="font-semibold text-emerald-700">
-                      Delivered: {new Date(order.deliveredAt).toLocaleDateString()}
+                      Delivered:{" "}
+                      {new Date(order.deliveredAt).toLocaleDateString()}
                     </p>
                   )}
                 </div>

@@ -10,6 +10,7 @@ import brandRouter from "./routes/brandRouter.js";
 import productRouter from "./routes/productRouter.js";
 import orderRouter from "./routes/orderRouter.js";
 import { stripeWebhook } from "./controllers/webhookController.js";
+import contactRouter from "./routes/contactRouter.js"
 
 dotenv.config();
 
@@ -41,6 +42,7 @@ app.use("/api/Category", categoryRouter);
 app.use("/api/MobileBrands", brandRouter);
 app.use("/api/Products", productRouter);
 app.use("/api/Orders", orderRouter);
+app.use("/api/contactform", contactRouter);
 
 /* =========================
    IMAGE UPLOAD

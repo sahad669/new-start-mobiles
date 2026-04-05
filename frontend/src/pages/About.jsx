@@ -69,11 +69,11 @@ const About = () => {
               About Our Company
             </div>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black bg-linear-to-r from-gray-900 via-indigo-900 to-gray-900 bg-clip-text text-transparent mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black bg-linear-to-r from-gray-900 via-indigo-900 to-gray-900 bg-clip-text text-transparent mb-6 leading-tight">
               Trusted Tech Partner Since 2015
             </h2>
             
-            <p className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed max-w-lg lg:max-w-none">
+            <p className="text-md sm:text-lg text-gray-700 mb-8 leading-relaxed max-w-lg lg:max-w-none">
               New Star Mobile is Abu Dhabi's premier destination for smartphones, 
               genuine accessories, and professional repair services. With years of 
               experience serving thousands of satisfied customers, we combine cutting-edge 
@@ -105,21 +105,21 @@ const About = () => {
       </section>
 
       {/* WHY CHOOSE US */}
-     <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden py-12 sm:py-14 lg:py-16">
         <div className="absolute inset-0 bg-linear-to-rr from-indigo-50/80 via-white to-purple-50/80" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20 sm:mb-24">
+          <div className="text-center mb-10 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-linear-to-r from-emerald-400 to-emerald-500 text-white px-6 py-3 rounded-full mb-8 font-semibold shadow-lg">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               Why Thousands Choose Us
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black bg-linear-to-r from-gray-900 via-indigo-900 to-gray-900 bg-clip-text text-transparent mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black bg-linear-to-r from-gray-900 via-indigo-900 to-gray-900 bg-clip-text text-transparent mb-6">
               What Makes Us Different
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Experience excellence in every purchase and service
             </p>
           </div>
@@ -182,7 +182,7 @@ const About = () => {
       </section>
 
       {/* BRANCHES */}
-     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+    <section  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
         <Branches />
       </section>
     </div>

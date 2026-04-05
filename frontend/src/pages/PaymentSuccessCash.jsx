@@ -8,6 +8,10 @@ const PaymentSuccessCash = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(clearCart());
@@ -25,7 +29,6 @@ const PaymentSuccessCash = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-green-50 via-white to-blue-50 px-4">
         <div className="text-center max-w-md w-full">
-
           {/* Spinner */}
           <div className="relative flex items-center justify-center mb-8">
             <div className="w-24 h-24 border-4 border-green-200 border-t-green-600 rounded-full animate-spin"></div>
@@ -37,7 +40,12 @@ const PaymentSuccessCash = () => {
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
             </div>
           </div>
@@ -55,9 +63,7 @@ const PaymentSuccessCash = () => {
             <div className="bg-linear-to-r from-green-500 to-blue-500 h-2 rounded-full animate-pulse w-[75%]"></div>
           </div>
 
-          <p className="text-xs text-gray-400 mt-2">
-            Almost done...
-          </p>
+          <p className="text-xs text-gray-400 mt-2">Almost done...</p>
         </div>
       </div>
     );
@@ -68,68 +74,98 @@ const PaymentSuccessCash = () => {
   ========================= */
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-green-50 via-white to-blue-50 px-4 py-10">
-      
-      <div className="bg-white shadow-xl rounded-2xl p-8 sm:p-10 max-w-md w-full text-center border border-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-emerald-50 px-4 py-10 mt-20 sm:py-16">
+      <div className="mx-auto max-w-2xl">
+        <div className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+          {/* Top success section */}
+          <div className="border-b border-slate-100 bg-linear-to-r from-emerald-50 via-white to-emerald-50 px-6 py-8 sm:px-10">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 shadow-inner sm:h-24 sm:w-24">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white sm:h-16 sm:w-16">
+                <svg
+                  className="h-8 w-8 sm:h-9 sm:w-9"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={3}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+            </div>
 
-        {/* Success Icon */}
-        <div className="flex items-center justify-center mb-6">
-          <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center">
-            <svg
-              className="w-12 h-12 text-green-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-            </svg>
+            <h1 className="mt-6 text-center text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              Order placed successfully
+            </h1>
+
+            <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-6 text-slate-600 sm:text-base">
+              Thank you for your purchase. Your order has been confirmed and
+              will be processed shortly.
+            </p>
+
+            <div className="mt-5 flex justify-center">
+              <span className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700">
+                Cash on Delivery selected
+              </span>
+            </div>
+          </div>
+
+          {/* Order details */}
+          <div className="px-6 py-6 sm:px-10 sm:py-8">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Payment Method
+                </p>
+                <p className="mt-2 text-sm font-semibold text-slate-900">
+                  Cash on Delivery
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Order Status
+                </p>
+                <p className="mt-2 text-sm font-semibold text-emerald-600">
+                  Confirmed
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-4">
+              <p className="text-sm leading-6 text-amber-800">
+                Please keep the payment amount ready. You can pay when your
+                order is delivered to your address.
+              </p>
+            </div>
+
+            {/* Buttons */}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <button
+                onClick={() => {
+                  scrollToTop();
+                  navigate("/ordersummery", { replace: true });
+                }}
+                className="inline-flex flex-1 items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-slate-800"
+              >
+                View My Orders
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollToTop();
+                  navigate("/product");
+                }}
+                className="inline-flex flex-1 items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              >
+                Continue Shopping
+              </button>
+            </div>
           </div>
         </div>
-
-        {/* Title */}
-        <h1 className="text-2xl sm:text-3xl font-bold text-green-600 mb-3">
-          Order Placed Successfully! 🎉
-        </h1>
-
-        {/* Description */}
-        <p className="text-gray-600 text-sm sm:text-base mb-4 leading-relaxed">
-          Your order has been confirmed and will be processed shortly.
-        </p>
-
-        <p className="text-gray-600 text-sm sm:text-base mb-6">
-          You selected <span className="font-semibold text-gray-800">Cash on Delivery</span>.  
-          Please pay the amount when your order arrives.
-        </p>
-
-        {/* Order Info */}
-        <div className="bg-gray-50 rounded-lg p-4 mb-6 text-sm text-gray-600">
-          <p>
-            <span className="font-semibold text-gray-700">Payment Method:</span> Cash on Delivery
-          </p>
-          <p>
-            <span className="font-semibold text-gray-700">Order Status:</span> Confirmed
-          </p>
-        </div>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3">
-
-          <button
-            onClick={() => navigate("/ordersummery", { replace: true })}
-            className="flex-1 bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition font-medium"
-          >
-            View My Orders
-          </button>
-
-          <button
-            onClick={() => navigate("/product")}
-            className="flex-1 border border-gray-300 py-2.5 rounded-lg hover:bg-gray-100 transition font-medium"
-          >
-            Continue Shopping
-          </button>
-
-        </div>
-
       </div>
     </div>
   );

@@ -78,7 +78,7 @@ const AddressForm = () => {
             address,
           })
         ).unwrap();
-        toast.success("Address updated successfully!");
+        // toast.success(res.data.message);
       } else {
         await dispatch(
           addAddress({
@@ -86,7 +86,7 @@ const AddressForm = () => {
             address,
           })
         ).unwrap();
-        toast.success("Address saved successfully!");
+        // toast.success(res.data.message);
       }
       navigate("/cart");
     } catch (err) {
@@ -97,7 +97,7 @@ const AddressForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-50 to-indigo-50 py-8 lg:py-12">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 to-indigo-50 py-8 lg:py-12 mt-18">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10 lg:mb-12">

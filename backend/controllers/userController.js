@@ -1,26 +1,27 @@
 import userModel from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import transporter from "../utils/mailer.js";
 
 export const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
+    // Validate input
     if (!username || !email || !password) {
-      return res.status(400).json({
-        message: "All fields are required",
-      });
+      return res.status(400).json({ message: "All fields are required" });
     }
 
+    // Check if user exists
     const exists = await userModel.findOne({ email });
     if (exists) {
-      return res.status(400).json({
-        message: "Email already registered",
-      });
+      return res.status(400).json({ message: "Email already registered" });
     }
 
+    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // Create user
     await userModel.create({
       username,
       email,
@@ -28,10 +29,34 @@ export const registerUser = async (req, res) => {
       role: "user",
     });
 
+    // Send welcome email
+    const mailOptions = {
+      from: process.env.EMAIL_USER, // your email
+      to: email, // user's registered email
+      subject: "Welcome to New Star!",
+      html: `
+        <div style="font-family: sans-serif; text-align: center;">
+          <h2>Hello ${username},</h2>
+          <p>🎉 Your account has been successfully registered!</p>
+          <p>Welcome to <strong>New Star</strong> — explore the latest products and exclusive offers.</p>
+          <p>We’re excited to have you onboard.</p>
+          <br/>
+          <p>Cheers,<br/>The New Star Team</p>
+        </div>
+      `,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) console.error("Error sending email:", err);
+      else console.log("Welcome email sent:", info.response);
+    });
+
+    // Send response to frontend
     res.status(201).json({
-      message: "Account created successfully. Please login.",
+      message: "Account created successfully. Please check your email for a welcome message.",
     });
   } catch (error) {
+    console.error(error);
     res.status(500).json({
       message: "Something went wrong. Please try again later.",
     });

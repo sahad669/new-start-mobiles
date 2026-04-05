@@ -27,6 +27,10 @@ const Cart = () => {
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("COD");
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     if (user?.userId) {
       dispatch(getAddresses(user.userId));
@@ -48,18 +52,18 @@ const Cart = () => {
   // ✅ HELPER FUNCTION: Convert variant object to readable string
   const getVariantDisplay = (variant) => {
     if (!variant) return null;
-    
+
     // If it's already a string
-    if (typeof variant === 'string') return variant;
-    
+    if (typeof variant === "string") return variant;
+
     // If it's an object, extract details
     const { color, storage, ram } = variant;
     const parts = [];
     if (color) parts.push(color.toUpperCase());
     if (storage) parts.push(storage);
     if (ram) parts.push(ram);
-    
-    return parts.length > 0 ? parts.join(' | ') : 'Default';
+
+    return parts.length > 0 ? parts.join(" | ") : "Default";
   };
 
   const handleCheckout = async () => {
@@ -96,10 +100,10 @@ const Cart = () => {
   if (!items?.length) return <EmptyCart />;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-6 lg:py-10">
+    <div className="min-h-screen bg-gray-50 py-6  lg:py-10">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 pt-30">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
             Shopping Cart
           </h1>
@@ -139,17 +143,25 @@ const Cart = () => {
                       <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-1">
                         {item.name}
                       </h3>
-                      
+
                       {/* ✅ FIXED VARIANT DISPLAY */}
                       {getVariantDisplay(item.variant) && (
                         <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-800 px-3 py-1.5 rounded-full text-xs font-medium mb-3 max-w-xs">
-                          <svg className="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                          <svg
+                            className="w-3 h-3 shrink-0"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                              clipRule="evenodd"
+                            />
                           </svg>
                           {getVariantDisplay(item.variant)}
                         </div>
                       )}
-                      
+
                       <p className="text-indigo-600 font-bold text-base mb-3">
                         AED {item.price.toFixed(2)}
                       </p>
@@ -212,15 +224,47 @@ const Cart = () => {
               </div>
 
               {/* Clear Cart */}
-              <div className="pt-8 mt-8 border-t-2 border-gray-200">
+              <div className="pt-8 mt-8 border-t-2 border-gray-200 flex justify-between">
                 <button
                   onClick={() => dispatch(clearCart())}
                   className="text-sm text-red-600 hover:text-red-700 font-semibold flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-red-50 transition-all"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
                   </svg>
                   Clear Cart
+                </button>
+                <button
+                  className="text-sm text-blue-600 hover:text-blue-700 fontsemibold flex item-center gap-2 px-4 py-2 rounded-xl hover:bg-blue-50 transition-all"
+                  onClick={() => {
+                    scrollToTop();
+                    navigate("/ordersummery");
+                  }}
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 7h18M3 7a2 2 0 012-2h14a2 2 0 012 2M3 7v13a2 2 0 002 2h14a2 2 0 002-2V7M16 3v4M8 3v4"
+                    />
+                  </svg>
+                  View Order
                 </button>
               </div>
             </div>
@@ -233,11 +277,23 @@ const Cart = () => {
                     Shipping Address
                   </h2>
                   <button
-                    onClick={() => navigate("/add-address", { state: { fromCart: true } })}
+                    onClick={() =>
+                      navigate("/add-address", { state: { fromCart: true } })
+                    }
                     className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center gap-1"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      />
                     </svg>
                     Add Address
                   </button>
@@ -247,7 +303,10 @@ const Cart = () => {
                   <div className="text-center py-12 border-2 border-dashed border-gray-200 rounded-xl">
                     <p className="text-gray-500 text-lg mb-2">No addresses</p>
                     <button
-                      onClick={() => navigate("/add-address", { state: { fromCart: true } })}
+                      onClick={() => {
+                        scrollToTop();
+                        navigate("/add-address", { state: { fromCart: true } });
+                      }}
                       className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-all shadow-lg"
                     >
                       Add your first address
@@ -293,10 +352,12 @@ const Cart = () => {
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
-                                dispatch(setDefaultAddress({
-                                  userId: user.userId,
-                                  addressId: addr._id,
-                                }));
+                                dispatch(
+                                  setDefaultAddress({
+                                    userId: user.userId,
+                                    addressId: addr._id,
+                                  }),
+                                );
                               }}
                               className="text-emerald-600 hover:text-emerald-700 font-medium px-3 py-1 rounded-lg hover:bg-emerald-50"
                             >
@@ -306,6 +367,7 @@ const Cart = () => {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
+                              scrollToTop()
                               navigate(`/edit-address/${addr._id}`);
                             }}
                             className="text-blue-600 hover:text-blue-700 font-medium px-3 py-1 rounded-lg hover:bg-blue-50"
@@ -315,10 +377,12 @@ const Cart = () => {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              dispatch(deleteAddress({
-                                userId: user.userId,
-                                addressId: addr._id,
-                              }));
+                              dispatch(
+                                deleteAddress({
+                                  userId: user.userId,
+                                  addressId: addr._id,
+                                }),
+                              );
                             }}
                             className="text-red-600 hover:text-red-700 font-medium px-3 py-1 rounded-lg hover:bg-red-50"
                           >
@@ -336,8 +400,18 @@ const Cart = () => {
             {user && (
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
-                  <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12" />
+                  <svg
+                    className="w-6 h-6 text-indigo-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 10h18M7 15h1m4 0h1m-7 4h12"
+                    />
                   </svg>
                   Payment Method
                 </h2>
@@ -351,8 +425,12 @@ const Cart = () => {
                       className="w-6 h-6 text-indigo-600 border-2 border-gray-300 rounded focus:ring-indigo-500"
                     />
                     <div>
-                      <p className="font-semibold text-lg text-gray-900">Cash on Delivery</p>
-                      <p className="text-sm text-gray-600">Pay when your order arrives</p>
+                      <p className="font-semibold text-lg text-gray-900">
+                        Cash on Delivery
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        Pay when your order arrives
+                      </p>
                     </div>
                   </label>
 
@@ -365,8 +443,12 @@ const Cart = () => {
                       className="w-6 h-6 text-indigo-600 border-2 border-gray-300 rounded focus:ring-indigo-500"
                     />
                     <div>
-                      <p className="font-semibold text-lg text-gray-900">Credit/Debit Card</p>
-                      <p className="text-sm text-gray-600">Pay securely online</p>
+                      <p className="font-semibold text-lg text-gray-900">
+                        Credit/Debit Card
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        Pay securely online
+                      </p>
                     </div>
                   </label>
                 </div>
@@ -378,24 +460,44 @@ const Cart = () => {
           <div className="xl:col-span-4">
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 sticky top-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                <svg
+                  className="w-8 h-8 text-indigo-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                  />
                 </svg>
                 Order Summary
               </h2>
 
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between py-3 border-b border-gray-200">
-                  <span className="text-lg text-gray-700">Subtotal ({items.length} items)</span>
-                  <span className="text-xl font-bold text-gray-900">AED {subtotal.toFixed(2)}</span>
+                  <span className="text-lg text-gray-700">
+                    Subtotal ({items.length} items)
+                  </span>
+                  <span className="text-xl font-bold text-gray-900">
+                    AED {subtotal.toFixed(2)}
+                  </span>
                 </div>
                 <div className="flex justify-between py-3">
                   <span className="text-lg text-gray-700">Shipping</span>
-                  <span className="text-xl font-bold text-emerald-600">AED 10.00</span>
+                  <span className="text-xl font-bold text-emerald-600">
+                    AED 10.00
+                  </span>
                 </div>
                 <div className="flex justify-between pt-4 border-t-2 border-gray-200">
-                  <span className="text-2xl font-bold text-gray-900">Total</span>
-                  <span className="text-3xl font-bold text-indigo-600">AED {total.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-gray-900">
+                    Total
+                  </span>
+                  <span className="text-3xl font-bold text-indigo-600">
+                    AED {total.toFixed(2)}
+                  </span>
                 </div>
               </div>
 
@@ -404,14 +506,19 @@ const Cart = () => {
                 disabled={!user || !selectedAddress}
                 className="w-full bg-linear-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white py-5 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-200 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {user && selectedAddress ? "Proceed to Checkout" : "Complete Setup"}
+                {user && selectedAddress
+                  ? "Proceed to Checkout"
+                  : "Complete Setup"}
               </button>
 
               {!user && (
-                <p className="text-center text-sm text-gray-500 mt-6">
+                <p className="text-center text-md text-gray-500 mt-6">
                   Please{" "}
                   <button
-                    onClick={() => navigate("/login")}
+                    onClick={() => {
+                      scrollToTop();
+                      navigate("/login");
+                    }}
                     className="text-indigo-600 hover:text-indigo-700 font-semibold underline"
                   >
                     sign in

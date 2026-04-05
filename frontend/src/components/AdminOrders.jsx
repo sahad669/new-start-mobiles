@@ -24,7 +24,7 @@ const AdminOrders = () => {
   }, []);
 
   const handleDelete = async (orderId) => {
-    if (!window.confirm("Are you sure you want to delete this order?")) return;
+    // if (!window.confirm("Are you sure you want to delete this order?")) return;
     
     try {
       await axiosInstants.delete(`/Orders/${orderId}`);

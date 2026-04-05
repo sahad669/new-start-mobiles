@@ -20,6 +20,10 @@ const Products = () => {
   const { categories } = useSelector((state) => state.category);
   const { products, loading, error } = useSelector((state) => state.product);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   // ✅ Initial load (brands & categories once, products first time)
   useEffect(() => {
     if (didInitFetch.current) return;
@@ -92,7 +96,7 @@ const Products = () => {
     searchName || filterCategory || filterBrand || filterCondition || sort;
 
   return (
-      <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-indigo-50 pt-25 pb-14">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-indigo-50 pt-25 pb-14">
       {/* Top Bar / Breadcrumb style */}
       <div className="border-b bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
@@ -288,7 +292,10 @@ const Products = () => {
                   return (
                     <div
                       key={product._id}
-                      onClick={() => navigate(`/viewproduct/${product._id}`)}
+                      onClick={() => {
+                        scrollToTop();
+                        navigate(`/viewproduct/${product._id}`);
+                      }}
                       className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col"
                     >
                       <div className="relative">
@@ -346,16 +353,11 @@ const Products = () => {
                         <button
                           type="button"
                           onClick={(e) => {
-                          e.stopPropagation();
+                            e.stopPropagation();
+                            scrollToTop();
 
-                          // scroll to top
-                          window.scrollTo({
-                            top: 1,
-                            behavior: "smooth",
-                          });
-
-                          navigate(`/viewproduct/${product._id}`);
-                        }}
+                            navigate(`/viewproduct/${product._id}`);
+                          }}
                           className="mt-3 inline-flex w-full items-center justify-center gap-1 rounded-full bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1"
                         >
                           Add to cart
