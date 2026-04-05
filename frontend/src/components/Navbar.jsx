@@ -88,6 +88,7 @@ const Navbar = () => {
               {/* Cart */}
               <Link
                 to="/cart"
+                  onClick={handleNavClick}
                 className="group relative p-2 rounded-2xl bg-linear-to-r from-slate-100 to-indigo-100 hover:from-indigo-100 hover:to-purple-100 border border-slate-200 hover:border-indigo-300 shadow-sm hover:shadow-md transition-all duration-300"
                 title="Shopping Cart"
               >
@@ -103,6 +104,7 @@ const Navbar = () => {
               {!user ? (
                 <Link
                   to="/login"
+                  onClick={handleNavClick}
                   className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
                   title="Login"
                 >

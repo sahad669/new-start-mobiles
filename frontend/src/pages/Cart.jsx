@@ -38,10 +38,13 @@ const Cart = () => {
   }, [user, dispatch]);
 
   useEffect(() => {
-    if (addresses.length > 0) {
-      const defaultAddr = addresses.find((a) => a.isDefault);
-      setSelectedAddress(defaultAddr || addresses[0]);
+    if (addresses.length === 0) {
+      setSelectedAddress(null);
+      return;
     }
+
+    const defaultAddr = addresses.find((a) => a.isDefault);
+    setSelectedAddress(defaultAddr || addresses[0]);
   }, [addresses]);
 
   const SHIPPING_FEE = 10;
@@ -367,7 +370,7 @@ const Cart = () => {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              scrollToTop()
+                              scrollToTop();
                               navigate(`/edit-address/${addr._id}`);
                             }}
                             className="text-blue-600 hover:text-blue-700 font-medium px-3 py-1 rounded-lg hover:bg-blue-50"
@@ -377,6 +380,7 @@ const Cart = () => {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
+
                               dispatch(
                                 deleteAddress({
                                   userId: user.userId,
@@ -503,10 +507,10 @@ const Cart = () => {
 
               <button
                 onClick={handleCheckout}
-                disabled={!user || !selectedAddress}
+                disabled={!user || addresses.length === 0 || !selectedAddress}
                 className="w-full bg-linear-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white py-5 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-200 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {user && selectedAddress
+                {user && addresses.length > 0 && selectedAddress
                   ? "Proceed to Checkout"
                   : "Complete Setup"}
               </button>
