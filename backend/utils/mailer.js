@@ -23,12 +23,12 @@ export const sendEmail = async ({ name, email, phone, message }) => {
   try {
     return await emailApi.sendTransacEmail({
       sender: {
-        email: process.env.EMAIL_USER,
+        email: process.env.BREVO_EMAIL,
         name: "New Start Mobiles",
       },
       to: [
         {
-          email: process.env.EMAIL_USER,
+          email: process.env.BREVO_EMAIL,
         },
       ],
       subject: "New Contact Message",
@@ -58,7 +58,7 @@ export const sendWelcomeEmail = async (email, username) => {
   try {
     return await emailApi.sendTransacEmail({
       sender: {
-        email: process.env.EMAIL_USER,
+        email: process.env.BREVO_EMAIL,
         name: "New Start Mobiles",
       },
       to: [{ email }],
@@ -98,10 +98,10 @@ export const sendOrderAdminEmail = async (orderData) => {
 
     return await emailApi.sendTransacEmail({
       sender: {
-        email: process.env.EMAIL_USER,
+        email: process.env.BREVO_EMAIL,
         name: "New Start Mobiles",
       },
-      to: [{ email: process.env.EMAIL_USER }], // admin email
+      to: [{ email: process.env.BREVO_EMAIL }], // admin email
 
       subject: `📦 New Order Placed: #${orderNumber}`,
 
