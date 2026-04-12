@@ -225,7 +225,7 @@ const ProductsAdmin = () => {
                 name="brand"
                 value={formData.brand}
                 onChange={handleChange}
-                required
+                
                 className="w-full px-5 py-3 border-2 border-slate-200 rounded-2xl bg-slate-50 text-md focus:ring-4 focus:ring-emerald-500 focus:border-emerald-500 focus:bg-white focus:outline-none transition-all shadow-sm hover:shadow-md"
               >
                 <option value="">Select Brand</option>
@@ -647,7 +647,7 @@ const ProductsAdmin = () => {
                             Brand
                           </div>
                           <div className="text-xl font-bold text-slate-900">
-                            {product.brand?.name}
+                           {product.brand?.name || "No Brand"}
                           </div>
                         </div>
                       </div>

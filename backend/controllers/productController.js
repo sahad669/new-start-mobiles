@@ -17,7 +17,7 @@ export const addProduct = async (req, res) => {
     } = req.body;
 
     // 🔹 Validate required fields
-    if (!name || !brand || !category || !condition) {
+    if (!name  || !category || !condition) {
       return res.status(400).json({
         message: "Please fill all required fields",
       });
@@ -48,11 +48,11 @@ export const addProduct = async (req, res) => {
       : {};
 
     const parsedVariants = variants ? JSON.parse(variants) : [];
-
+    const finalBrand = brand === "" ? null : brand;
     // 🔹 Create new product
     const product = await productModel.create({
       name,
-      brand,
+       brand: finalBrand,
       category,
       condition,
       description,
@@ -86,6 +86,9 @@ export const editProduct = async (req, res) => {
     const { id } = req.params;
     const data = { ...req.body };
 
+    if (data.brand === "") {
+  data.brand = null;
+}
     // ✅ Handle images (if uploaded)
     if (req.files && req.files.length > 0) {
       data.images = req.files.map((file) => file.path || file.secure_url);
