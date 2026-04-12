@@ -2,9 +2,20 @@ import React, { useState, useEffect } from "react";
 
 const branchesData = [
   {
-    name: "Branch 1",
+    name: "Main Branch",
     location:
-      "7 Ath Thiqah 8 St - Musaffah-17 - Musaffah Industrial - Abu Dhabi",
+      "Western Region Beda Zayed Sanaya - Abu Dhabi",
+    images: [
+      "/images/new-star.jpg",
+      "/images/newstar-two.webp",
+      "/images/newstar-one.webp",
+      "/images/newstar-three.webp",
+      "/images/new-star-about.webp",
+    ],
+  },
+  {
+    name: "Branch 1",
+    location: "Beda Zayed - Sanaya - near bigmart  - Abu Dhabi - UAE",
     images: [
       "/images/new-star.jpg",
       "/images/newstar-two.webp",
@@ -15,18 +26,7 @@ const branchesData = [
   },
   {
     name: "Branch 2",
-    location: "Musaffah-17 - Abu Dhabi ",
-    images: [
-      "/images/new-star.jpg",
-      "/images/newstar-two.webp",
-      "/images/newstar-one.webp",
-      "/images/newstar-three.webp",
-      "/images/new-star-about.webp",
-    ],
-  },
-  {
-    name: "Branch 3",
-    location: "Western Region Beda Zayed Sanaya - Abu Dhabi ",
+    location: "Musaffah M-17 - Abu Dhabi - UAE",
     images: [
       "/images/new-star.jpg",
       "/images/newstar-two.webp",

@@ -179,7 +179,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {/* Mobile Service */}
             <Link to="/services" className="group">
               <div className="relative h-full bg-white/70 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 border border-white/50 hover:border-yellow-200/50 overflow-hidden">

@@ -36,16 +36,16 @@ const Navbar = () => {
             className="flex items-center gap-3 shrink-0 hover:scale-105 transition-all duration-300"
           >
             <img
-              src="/images/newstar-logo.png.png"
+              src="/images/New-star-logo-with-name.png"
               alt="New Star"
-              className="w-16 h-16 lg:w-18 lg:h-18 object-contain"
+              className="w-18 h-18 g:w-18 lg:h-18 object-contain"
             />
             <div className="flex flex-col leading-tight min-w-[120px]">
               <h1 className="text-xl lg:text-2xl font-black bg-linear-to-r from-slate-900 via-indigo-900 to-slate-900 bg-clip-text text-transparent tracking-tight">
                 New Star
               </h1>
               <p className="text-xs text-slate-500 font-medium hidden sm:block">
-                Premium Electronics
+                Mobiles & Computers
               </p>
             </div>
           </Link>

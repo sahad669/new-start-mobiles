@@ -13,9 +13,9 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="mb-8">
               <img
-                src="/images/newstar-logo.png.png"
+                src="/images/New-star-logo-with-name.png"
                 alt="New Star"
-                className="w-36 h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 filter brightness-0 invert"
+                className="w-36 h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
               />
             </div>
 
@@ -180,13 +180,13 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <div>Abu Dhabi, UAE</div>
+                <div>Beda Zayed, Sanaya, Abu Dhabi, UAE</div>
               </div>
               <div className="flex items-start gap-3 p-4 bg-linear-to-r from-slate-800/50 to-indigo-900/30 backdrop-blur-sm rounded-2xl hover:from-slate-700/70 hover:to-indigo-800/40 transition-all border border-slate-600/30">
                 <svg className="w-6 h-6 mt-1 text-indigo-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.27 7.27c.396.377.916.58 1.45.58.534 0 1.054-.203 1.45-.58L21 8M4 16h18M4 12h18M4 20h18" />
                 </svg>
-                <div>newstarmobileuae@gmail.com</div>
+                <div>newstarsalesuae@gmail.com</div>
               </div>
             </div>
           </div>

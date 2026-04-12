@@ -16,34 +16,34 @@ import axiosInstants from "../axiosInstants";
 const branchData = [
   {
     title: "Main Shop",
-    name: "Main Branch",
+    name: "New Start Mobiles",
     location: "Western Region Beda Zayed Sanaya Abu Dhabi",
     phone: "028843107",
     whatsapp: "+971567574124",
-    email: "newstarmobileuae@gmail.com",
+    email: "newstarsalesuae@gmail.com",
     mapLink:
       "https://www.google.com/maps/place/23%C2%B039'35.1%22N+53%C2%B043'37.8%22E/@23.6597538,53.7245865,17z/data=!3m1!4b1!4m4!3m3!8m2!3d23.6597538!4d53.7271614?hl=en&entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D",
     badge: "Main Store",
   },
   {
     title: "Branch 1",
-    name: "Branch 1 Name",
-    location: "Musaffah - Abu Dhabi",
-    phone: "+971 50 234 5678",
-    whatsapp: "+971 50 234 5678",
-    email: "branch1@yourshop.com",
+    name: "New Start Mobiles",
+    location: "Beda Zayed - Sanaya - near bigmart  - Abu Dhabi - UAE",
+    phone: "+971523423547",
+    whatsapp: "+971523423547",
+    email: "newstarsalesuae@gmail.com",
     mapLink: "https://maps.google.com",
-    badge: "Service Point",
+    
   },
   {
     title: "Branch 2",
-    name: "Branch 2 Name",
-    location: "Abu Dhabi",
-    phone: "+971 50 345 6789",
-    whatsapp: "+971 50 345 6789",
-    email: "branch2@yourshop.com",
+    name: "New Start Mobiles",
+    location: "Musaffah M-17 - Abu Dhabi - UAE",
+    phone: "026433556",
+    whatsapp: "+971566986693",
+    email: "newstarsalesuae@gmail.com",
     mapLink: "https://maps.google.com",
-    badge: "Support Desk",
+   
   },
 ];
 
@@ -51,7 +51,7 @@ const infoCards = [
   {
     icon: Phone,
     title: "Call Us",
-    value: "+971567574124",
+    value: "028843107",
     sub: "Quick support for products and repairs",
   },
   {
@@ -63,7 +63,7 @@ const infoCards = [
   {
     icon: Mail,
     title: "Email",
-    value: "newstarmobileuae@gmail.com",
+    value: "newstarsalesuae@gmail.com",
     sub: "Business and general contact",
   },
   {
@@ -181,7 +181,7 @@ const ContactPage = () => {
                     </h2>
                   </div>
                   <span className="inline-flex items-center rounded-full bg-white/15 px-4 py-2 text-sm font-semibold border border-white/10">
-                    Main Branch
+                    Main Shop
                   </span>
                 </div>
               </div>
@@ -193,8 +193,8 @@ const ContactPage = () => {
                       <Building2 className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-slate-500">Branch Name</p>
-                      <p className="text-base font-bold text-slate-900">Main Branch</p>
+                      <p className="text-sm font-semibold text-slate-500">Shop Name</p>
+                      <p className="text-base font-bold text-slate-900">New Star Mobiles</p>
                     </div>
                   </div>
 
@@ -218,7 +218,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-slate-500">Phone</p>
-                      <p className="text-base font-semibold text-slate-800">+971567574124</p>
+                      <p className="text-base font-semibold text-slate-800">028843107</p>
                       <p className="text-sm text-slate-500 mt-1">WhatsApp: +971567574124</p>
                     </div>
                   </div>
@@ -230,10 +230,10 @@ const ContactPage = () => {
                     <div>
                       <p className="text-sm font-semibold text-slate-500">Email</p>
                       <a
-                        href="mailto:newstarmobileuae@gmail.com"
+                        href="mailto:newstarsalesuae@gmail.com"
                         className="text-base font-semibold text-slate-800 hover:text-emerald-600 transition-colors break-all"
                       >
-                        newstarmobileuae@gmail.com
+                        newstarsalesuae@gmail.com
                       </a>
                     </div>
                   </div>
@@ -285,9 +285,7 @@ const ContactPage = () => {
                         <h3 className="text-xl font-bold text-slate-900">
                           {branch.title}
                         </h3>
-                        <p className="text-sm text-emerald-600 font-semibold mt-1">
-                          {branch.badge}
-                        </p>
+                       
                       </div>
                       <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-slate-900 to-indigo-900 flex items-center justify-center shadow-lg">
                         <Building2 className="w-5 h-5 text-white" />
@@ -301,7 +299,7 @@ const ContactPage = () => {
                       </p>
                       <p className="text-slate-700">
                         <span className="font-bold text-slate-900">Phone:</span>{" "}
-                        {branch.phone}
+                        {branch.whatsapp}
                       </p>
                       <p className="text-slate-700 break-all">
                         <span className="font-bold text-slate-900">Email:</span>{" "}

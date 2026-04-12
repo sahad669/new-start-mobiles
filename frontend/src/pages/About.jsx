@@ -70,7 +70,7 @@ const About = () => {
             </div>
             
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black bg-linear-to-r from-gray-900 via-indigo-900 to-gray-900 bg-clip-text text-transparent mb-6 leading-tight">
-              Trusted Tech Partner Since 2015
+              Trusted Tech Partner Since 2008
             </h2>
             
             <p className="text-md sm:text-lg text-gray-700 mb-8 leading-relaxed max-w-lg lg:max-w-none">
