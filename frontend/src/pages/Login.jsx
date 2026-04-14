@@ -55,14 +55,14 @@ const Login = () => {
       {/* Main Login Card */}
       <div className="relative z-10 w-full max-w-md lg:max-w-2xl xl:max-w-4xl bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200/50 overflow-hidden flex flex-col lg:flex-row animate-slide-up mt-25">
         {/* LEFT SIDE - Brand Section */}
-        <div className="w-full lg:w-1/2 bg-linear-to-br from-slate-900 via-indigo-900 to-purple-900 p-8 sm:p-10 lg:p-12 xl:p-16 flex flex-col justify-center items-center text-center relative overflow-hidden">
+        <div className="w-full lg:w-1/2 bg-linear-to-br  from-slate-50 via-white to-indigo-50/80 p-8 sm:p-10 lg:p-12 xl:p-16 flex flex-col justify-center items-center text-center relative overflow-hidden">
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
 
           {/* Animated Logo Badge */}
           <div className="relative z-10 mb-6 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-2xl animate-bounce-in">
             <svg
-              className="w-10 h-10 text-white"
+              className="w-10 h-10 text-black"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -76,17 +76,17 @@ const Login = () => {
             </svg>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white mb-6 sm:mb-8 tracking-tight bg-linear-to-r from-slate-100 via-indigo-100 to-slate-100 bg-clip-text drop-shadow-2xl leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-black mb-6 sm:mb-8 tracking-tight bg-linear-to-r from-slate-100 via-indigo-100 to-slate-100 bg-clip-text drop-shadow-2xl leading-tight">
             Welcome Back
           </h1>
 
           <img
             src="/images/New-star-logo-with-name.png"
             alt="New Star Mobile"
-            className="w-40 sm:w-48 lg:w-56 xl:w-64 h-auto rounded-2xl drop-shadow-2xl mx-auto mb-6 sm:mb-8 hover:scale-105 transition-transform duration-300 filter brightness-0 invert"
+            className="w-40 sm:w-48 lg:w-56 xl:w-64 h-auto rounded-2xl drop-shadow-2xl mx-auto mb-6 sm:mb-8 hover:scale-105 transition-transform duration-300"
           />
 
-          <p className="text-slate-200/90 text-sm sm:text-base lg:text-lg font-light max-w-xs sm:max-w-sm leading-relaxed drop-shadow-md">
+          <p className="text-black text-sm sm:text-base lg:text-lg font-light max-w-xs sm:max-w-sm leading-relaxed drop-shadow-md">
             Sign in to access your account, track orders, and continue shopping
             seamlessly
           </p>
